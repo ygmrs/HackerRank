@@ -12,14 +12,14 @@
 	If you are interested in helping or have a solution in a different language feel free to make a pull request.
 </p>
 <p align="center">
-	<img src="https://img.shields.io/badge/Problems%20Solved-153-brightgreen.svg">
-	<img src="https://img.shields.io/badge/Language-Java/JS/Python/C++/CSharp-orange.svg">
-	<img src="https://img.shields.io/badge/Latest%20Update-06/21/2018-brightgreen.svg">
+	<img src="https://img.shields.io/badge/Problems%20Solved-XXIII-brightgreen.svg">
+	<img src="https://img.shields.io/badge/Language-Java/JS/Python/Nodejs/Angularjs-orange.svg">
+	<img src="https://img.shields.io/badge/Latest%20Update-15/01/2019-brightgreen.svg">
 </p>
 
 
 
-## Java ![JavaPoints]
+## Java 
 - Introduction
 - Strings
 - BigNumber

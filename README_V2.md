@@ -13,20 +13,9 @@
 </p>
 <p align="center">
 	<img src="https://img.shields.io/badge/Problems%20Solved-153-brightgreen.svg">
-	<img src="https://img.shields.io/badge/Language-Java/Python/C++-orange.svg">
-	<img src="https://img.shields.io/badge/Latest%20Update-07/16/2017-brightgreen.svg">
+	<img src="https://img.shields.io/badge/Language-Java/JS/Python/Nodejs/Angularjs-orange.svg">
+	<img src="https://img.shields.io/badge/Latest%20Update-15/01/2019-brightgreen.svg">
 </p>
-
-
-
-### Math
-- Fundamentals
-- Number Theory
-- Combinatorics
-- Algebra
-- Geometry
-- Probability
-- Linear Algebra Foundations
 
 
 ## Languages
