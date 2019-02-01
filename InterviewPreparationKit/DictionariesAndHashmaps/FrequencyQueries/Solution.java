@@ -4,11 +4,14 @@ import java.security.*;
 import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.function.*;
 import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 
 public class Solution {
-
-    static List<Integer> freqQuery(List<List<Integer>> queries) {
+    static List<Integer> freqQuery(int[][] queries) {
         final Map<Integer, Integer> valueToFreq = new HashMap<>();
         final Map<Integer, Integer> freqToOccurrence = new HashMap<>();
         final List<Integer> frequencies = new ArrayList<>();
@@ -19,9 +22,9 @@ public class Solution {
         Integer newFreq;
         Integer oldOccurrence;
         Integer newOccurrence;
-        for (List<Integer> query : queries) {
-            key = query.get(0);
-            value = query.get(1);
+        for (int[] query : queries) {
+            key = query[0];
+            value = query[1];
             if (key == 3) {
                 frequencies.add(freqToOccurrence.get(value) == null ? 0 : 1);
             } else {
@@ -56,39 +59,23 @@ public class Solution {
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-        int q = Integer.parseInt(bufferedReader.readLine().trim());
+            int q = Integer.parseInt(bufferedReader.readLine().trim());
+            int[][] queries = new int[q][2];
 
-        List<List<Integer>> queries = new ArrayList<>();
-
-        for (int i = 0; i < q; i++) {
-            String[] queriesRowTempItems = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
-
-            List<Integer> queriesRowItems = new ArrayList<>();
-
-            for (int j = 0; j < 2; j++) {
-                int queriesItem = Integer.parseInt(queriesRowTempItems[j]);
-                queriesRowItems.add(queriesItem);
+            for (int i = 0; i < q; i++) {
+                String[] query = bufferedReader.readLine().split(" ");
+                queries[i][0] = Integer.parseInt(query[0]);
+                queries[i][1] = Integer.parseInt(query[1]);
             }
 
-            queries.add(queriesRowItems);
-        }
+            List<Integer> ans = freqQuery(queries);
 
-        List<Integer> ans = freqQuery(queries);
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        for (int i = 0; i < ans.size(); i++) {
-            bufferedWriter.write(String.valueOf(ans.get(i)));
-
-            if (i != ans.size() - 1) {
-                bufferedWriter.write("\n");
+                bufferedWriter.write(ans.stream().map(Object::toString).collect(joining("\n")) + "\n");
             }
         }
-
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
     }
 }

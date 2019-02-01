@@ -9,17 +9,17 @@ import java.util.regex.*;
 public class Solution {
 
     static int sockMerchant(int n, int[] ar) {
-        int result = 0;
-        Set<Integer> colorSet = new HashSet<>();
-        for(int i=0; i<n; i++){
-            if(!colorSet.contains(ar[i])){
-                colorSet.add(ar[i]);
-            }else{
+        HashSet<Integer> colorSet = new HashSet<>();
+        int matching_pairs = 0;
+        for(int i=0; i<ar.length; i++){
+            if(colorSet.contains(ar[i])){
                 colorSet.remove(ar[i]);
-                result++;
+                matching_pairs++;
+            }else{
+                colorSet.add(ar[i]);
             }
         }
-        return result;
+        return matching_pairs;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
